@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Pizza from '../components/Pizza'
 class PizzaList extends Component {
 
+  createPizzaLis = () => {
+    return this.props.pizzas.map((pizza,index) => <Pizza key={index} pizza={pizza} editClick={this.props.editClick} /> )
+  }
+
   render() {
     return (
       <table className="table table-striped">
@@ -15,7 +19,7 @@ class PizzaList extends Component {
         </thead>
         <tbody>
           {
-            //render Pizza here
+            this.createPizzaLis()
           }
         </tbody>
       </table>
