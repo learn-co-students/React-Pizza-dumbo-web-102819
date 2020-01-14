@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import Pizza from '../components/Pizza'
+import uuid from 'uuid'
 class PizzaList extends Component {
 
+
+  renderPizza = () => {
+    return this.props.pizzas.map((pizza, index) => {
+      return <Pizza key={uuid()} pizza={pizza} handleClick={this.props.handleClick}/>
+    }) }
   render() {
+    
     return (
       <table className="table table-striped">
         <thead>
@@ -15,7 +22,7 @@ class PizzaList extends Component {
         </thead>
         <tbody>
           {
-            //render Pizza here
+            this.renderPizza()
           }
         </tbody>
       </table>
